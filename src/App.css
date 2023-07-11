@@ -253,11 +253,11 @@ ul li {
 }
 
 .contact-form p.success-message {
-  color: green;
+  color: rgb(253, 253, 253);
   margin-top: 10px;
 }
 
 .contact-form p.error-message {
-  color: red;
+  color: rgba(255, 0, 0, 0.466);
   margin-top: 10px;
 }

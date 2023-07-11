@@ -166,6 +166,7 @@ const ContactForm = () => {
     email: '',
     message: ''
   });
+  const [mensajeEnviado, setMensajeEnviado] = useState(false); // Estado para controlar si se envió el mensaje
 
   const handleChange = (e) => {
     setFormData({
@@ -184,40 +185,48 @@ const ContactForm = () => {
       email: '',
       message: ''
     });
+    // Mostrar el mensaje de enviado
+    setMensajeEnviado(true);
   };
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Nombre:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="message">Mensaje:</label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-        ></textarea>
-      </div>
-      <button type="submit">Enviar</button>
+      {mensajeEnviado ? (
+        <p className="success-message">Mensaje enviado</p>
+      ) : (
+        <>
+          <div>
+            <label htmlFor="name">Nombre:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="message">Mensaje:</label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+          <button type="submit">Enviar</button>
+        </>
+      )}
     </form>
   );
 };
