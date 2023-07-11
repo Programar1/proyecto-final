@@ -95,17 +95,139 @@ const ProductoDetalle = ({ match }) => {
   );
 };
 
-const SobreNosotros = () => (
-  <div>
-    <h2>Sobre Nosotros</h2>
-    <p>Conoce más sobre Misiotrónica y nuestra historia.</p>
-  </div>
-);
+const SobreNosotros = () => {
+  const [seccionSeleccionada, setSeccionSeleccionada] = useState('historia');
+
+  const handleSeccionClick = (seccion) => {
+    setSeccionSeleccionada(seccion);
+  };
+
+  return (
+    <div>
+      <h2 className="section-heading">Sobre Nosotros</h2>
+      <div className="about-buttons">
+        <button
+          className={`about-button ${seccionSeleccionada === 'historia' ? 'active' : ''}`}
+          onClick={() => handleSeccionClick('historia')}
+        >
+          Nuestra Historia
+        </button>
+        <button
+          className={`about-button ${seccionSeleccionada === 'equipo' ? 'active' : ''}`}
+          onClick={() => handleSeccionClick('equipo')}
+        >
+          Nuestro Equipo
+        </button>
+        <button
+          className={`about-button ${seccionSeleccionada === 'valores' ? 'active' : ''}`}
+          onClick={() => handleSeccionClick('valores')}
+        >
+          Nuestros Valores
+        </button>
+      </div>
+      {seccionSeleccionada === 'historia' && (
+        <div className="about-content">
+          <h3 className="about-subheading">Nuestra Historia</h3>
+          <p className="about-description">
+            En Misiotrónica, nos apasiona la tecnología y nos esforzamos por ofrecer productos de calidad que
+            mejoren la vida de las personas. Desde nuestros humildes comienzos en 2010, hemos crecido hasta
+            convertirnos en una tienda líder en el sector de elementos electrónicos.
+          </p>
+        </div>
+      )}
+      {seccionSeleccionada === 'equipo' && (
+        <div className="about-content">
+          <h3 className="about-subheading">Nuestro Equipo</h3>
+          <p className="about-description">
+            Contamos con un equipo dedicado de expertos en tecnología que comparten una visión común: brindar
+            soluciones innovadoras y un excelente servicio al cliente. Trabajamos juntos para seleccionar los
+            mejores productos y ofrecer asesoramiento técnico a nuestros clientes.
+          </p>
+        </div>
+      )}
+      {seccionSeleccionada === 'valores' && (
+        <div className="about-content">
+          <h3 className="about-subheading">Nuestros Valores</h3>
+          <ul className="value-list">
+            <li>CALIDAD: Nos esforzamos por ofrecer productos de alta calidad que cumplan con los estándares más exigentes.</li>
+            <li>INNOVACIÓN: Nos mantenemos al tanto de las últimas tendencias y avances tecnológicos para ofrecer productos vanguardistas.</li>
+            <li>SATISFACCIÓN DEL CLIENTE: Nuestro objetivo principal es superar las expectativas de nuestros clientes y brindar un servicio excepcional.</li>
+            <li>SOSTENIBILIDAD: Nos comprometemos a operar de manera responsable y minimizar nuestro impacto en el medio ambiente.</li>
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Lógica para enviar el formulario
+    console.log(formData);
+    // Restablecer el estado del formulario
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
+    });
+  };
+
+  return (
+    <form className="contact-form" onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Nombre:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="message">Mensaje:</label>
+        <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+        ></textarea>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+};
 
 const Contacto = () => (
   <div>
     <h2>Contacto</h2>
-    <p>¡Contáctanos para cualquier consulta o pregunta!</p>
+    <p className='leyenda'>¡Contáctanos para cualquier consulta o pregunta!</p>
+    <p className='leyenda'>Complete el formulario a continuación y nos pondremos en contacto contigo lo antes posible.</p>
+    <ContactForm />
   </div>
 );
 
