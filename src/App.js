@@ -25,8 +25,13 @@ const Navbar = () => (
 
 const Home = () => (
   <div>
-    <h1>Bienvenido a Misiotrónica</h1>
-    <p>Tu tienda favorito de elementos electrónicos.</p>
+    <h1>¡BIENVENIDO A MISTRÓNICA!</h1>
+    <h2>La tienda electrónica perfecta para los amantes de la tecnología.</h2>
+
+    <p className="description">Descubre una amplia gama de productos electrónicos de última generación, desde smartphones y tablets hasta laptops y accesorios, todo en un solo lugar. Nuestro compromiso es brindarte la mejor experiencia de compra en línea, con productos de calidad, precios competitivos y un servicio al cliente excepcional.
+    Explora nuestro catálogo y encuentra los dispositivos y gadgets más innovadores de marcas reconocidas a nivel mundial. Ya sea que estés buscando actualizar tus dispositivos actuales o estés en busca de los últimos lanzamientos, Misotronica tiene todo lo que necesitas.
+    Nuestro equipo de expertos en tecnología está aquí para asesorarte y resolver cualquier duda que puedas tener. Además, ofrecemos envío rápido y seguro a cualquier parte del país, para que recibas tus productos en la puerta de tu hogar.
+    ¡No pierdas más tiempo y comienza a disfrutar de la última tecnología con Misotronica!</p>
   </div>
 );
 
@@ -44,12 +49,22 @@ const Productos = () => {
   return (
     <div>
       <h2>Productos</h2>
-      <ul>
-        <li onClick={() => handleCategoriaClick(null)}>Todos</li>
-        <li onClick={() => handleCategoriaClick('cables')}>Cables</li>
-        <li onClick={() => handleCategoriaClick('placas')}>Placas</li>
-        <li onClick={() => handleCategoriaClick('baterias')}>Baterías</li>
-        <li onClick={() => handleCategoriaClick('componentes electronicos')}>Componentes Electrónicos</li>
+      <ul className="categorias">
+        <li className={categoriaSeleccionada === null ? 'selected' : ''} onClick={() => handleCategoriaClick(null)}>
+          Todos
+        </li>
+        <li className={categoriaSeleccionada === 'cables' ? 'selected' : ''} onClick={() => handleCategoriaClick('cables')}>
+          Cables
+        </li>
+        <li className={categoriaSeleccionada === 'placas' ? 'selected' : ''} onClick={() => handleCategoriaClick('placas')}>
+          Placas
+        </li>
+        <li className={categoriaSeleccionada === 'baterias' ? 'selected' : ''} onClick={() => handleCategoriaClick('baterias')}>
+          Baterías
+        </li>
+        <li className={categoriaSeleccionada === 'componentes electronicos' ? 'selected' : ''} onClick={() => handleCategoriaClick('componentes electronicos')}>
+          Componentes Electrónicos
+        </li>
         {/* Agrega más categorías aquí según tus necesidades */}
       </ul>
       <ul>
