@@ -1,34 +1,15 @@
 /* Estilos globales */
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #868484;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  background-color: rgb(200, 191, 179)
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-}
-
-/* Logo de Fondo de la Pagina */
-
-.app-container {
-  position: relative;
-  height: 100vh;
-}
-
-.logo-container {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.logo-img {
-  width: 200px; /* Ajusta el tamaño del logo según tus necesidades */
 }
 
 /* Estilos para el navbar */
@@ -40,6 +21,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -61,13 +43,13 @@ nav ul {
 /* Estilo de texto inicial */
 
 .description {
-  font-size: 20px;
+  font-size: 26px;
   line-height: 1.5;
-  margin-bottom: 30px;
   color: #333;
   text-align: justify;
-  margin-left: 10px;
-  margin-right: 20px;
+  padding: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .formal-page {
@@ -84,15 +66,15 @@ section {
 }
 
 h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
   text-align: center;
+  margin-top: 0px;
+  padding: 20px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 10px;
-  margin-left: 15px;
+  text-align: center;
 }
 
 p {
@@ -103,7 +85,7 @@ p {
 
 a {
   text-decoration: none;
-  color: #333;
+  color: #070707;
 }
 
 a:hover {
@@ -127,6 +109,118 @@ a:hover {
 
 /* Estilos para la lista de productos */
 
+.modal-content button {
+  background-color: #333333; /* Color de fondo gris oscuro */
+  color: #ffffff; /* Color de texto blanco */
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.modal-content button:hover {
+  background-color: #555555;
+}
+
+
+
+
+.modal-content {
+  padding: 5px;
+  margin: 5px;
+}
+
+.contenedor-carrito {
+  margin: 5px;
+}
+.container-footer {
+  background-color: #282c34;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  height: 160px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+}
+.navegador {
+  display: flex;
+  flex-wrap: wrap;
+}
+.app-container {
+  width: 100vw;
+}
+
+
+/*Barra de búsqueda*/
+input[type="text"] {
+  flex-grow: 1;
+  padding: 5px;
+  width: 250px;
+  height: 20px;
+  margin-bottom: 5px;
+}
+.SearchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  /* margin: 10px; */
+  background-color: gray;
+  padding: 5px;
+}
+.button {
+  color: white;
+  margin-left: 0px;
+  margin-top: 40px;
+}
+.search-button {
+  padding: 6px 10px;
+  background-color: #039bfb;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+.search-input {
+  padding: 8px;
+  border: 1px solid #201a1a;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+
+
+
+.product-list button {
+  background-color: #333333; /* Color de fondo gris oscuro */
+  color: #ffffff; /* Color de texto blanco */
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.button-view-cart {
+  background-color: #333333; /* Color de fondo gris oscuro */
+  color: #ffffff; /* Color de texto blanco */
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.product-list button:hover {
+  background-color: #555555;
+}
+
+.button-view-cart:hover {
+  background-color: #555555;
+}
+
 ul.categorias {
   display: flex;
   list-style: none;
@@ -142,7 +236,7 @@ ul.categorias li {
 }
 
 ul.categorias li.selected {
-  background-color: #333;
+  background-color: #4a4a4a;
   color: #fff;
 }
 
@@ -187,7 +281,7 @@ ul li {
   margin-top: 20px;
 }
 
-/* Estilos de los textos dentro de los seleccionables*/ 
+/* Estilos de los textos dentro de los seleccionables*/
 
 .about-subheading {
   margin-left: 15px;
@@ -198,7 +292,6 @@ ul li {
   margin-bottom: 10px;
   margin-left: 30px;
   line-height: 1.5;
-  
 }
 
 .value-list {
@@ -260,4 +353,65 @@ ul li {
 .contact-form p.error-message {
   color: rgba(255, 0, 0, 0.466);
   margin-top: 10px;
+}
+
+.not-found {
+  text-align: center;
+  padding: 50px;
+}
+
+.cortocircuito {
+  max-width: 60%;
+  margin-top: 20px;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  background-color: #282c34;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.menu.open {
+  display: block;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin: 10px 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
 }
